@@ -24,12 +24,6 @@ public class SkierRestController {
         return  skierServices.addSkier(skier);
     }
 
-    @Operation(description = "Add Skier And Assign To Course")
-    @PostMapping("/addAndAssign/{numCourse}")
-    public Skier addSkierAndAssignToCourse(@RequestBody Skier skier,
-                                           @PathVariable("numCourse") Long numCourse){
-        return  skierServices.addSkierAndAssignToCourse(skier,numCourse);
-    }
     @Operation(description = "Assign Skier To Subscription")
     @PutMapping("/assignToSub/{numSkier}/{numSub}")
     public Skier assignToSubscription(@PathVariable("numSkier")Long numSkier,

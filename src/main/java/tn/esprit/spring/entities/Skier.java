@@ -47,8 +47,9 @@ public class Skier implements Serializable {
 	Set<Registration> registrations;
 
 
+	public Skier(String john, String doe, LocalDate now, String city, Subscription subscription, Object o) {
+	}
 
-
-
-
+	public Skier(String alice, String smith, LocalDate now, String city, Object o) {
+	}
 }
