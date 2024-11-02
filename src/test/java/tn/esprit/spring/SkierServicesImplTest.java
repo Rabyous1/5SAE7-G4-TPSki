@@ -75,6 +75,7 @@ public class SkierServicesImplTest {
         Skier result = skierServices.addSkier(skier);
 
         assertEquals(subscription.getStartDate().plusYears(1), result.getSubscription().getEndDate());
+
     }
 
     @Test
