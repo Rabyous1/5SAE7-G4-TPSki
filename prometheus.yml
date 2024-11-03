@@ -5,4 +5,4 @@ scrape_configs:
   - job_name: 'app-gestion'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['app-gestion:8080']
+      - targets: ['app-gestion:8089']  # Remplacez 8080 par 8089
