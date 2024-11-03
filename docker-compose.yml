@@ -54,4 +54,4 @@ services:
 
 volumes:
   db_data:
-  prometheus_data:
+  grafana_data:  # Ajoutez cette ligne pour définir le volume grafana_data
