@@ -19,7 +19,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8089"  # Assurez-vous que le port correspond à la configuration de votre application Spring
+      - "8083:8080"  # Utilise le port 8083 en local au lieu de 8080
     environment:
       SPRING_APPLICATION_JSON: '{
         "spring.datasource.url" : "jdbc:mysql://mysql:3306/gestion_station_ski?createDatabaseIfNotExist=true",
