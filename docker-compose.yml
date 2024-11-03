@@ -28,7 +28,12 @@ services:
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
         "spring.jpa.hibernate.ddl-auto" : "update",
         "server.servlet.context-path": "/api",
-        "server.port": "8089"
+        "server.port": "8089",
+        "management.endpoints.web.exposure.include": "*",
+        "management.endpoint.prometheus.enabled": "true",
+        "management.metrics.export.prometheus.enabled": "true",
+        "management.endpoints.web.base-path": "/actuator",
+        "management.metrics.export.prometheus.rsocket.enabled": "false"
       }'
     restart: on-failure
     stdin_open: true
@@ -47,11 +52,11 @@ services:
   prometheus:
     image: prom/prometheus
     ports:
-      - "9091:9090" # Expose Prometheus on port 9091 instead of 9090
+      - "9091:9090"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     restart: always
 
 volumes:
   db_data:
-  grafana_data:  # Ajoutez cette ligne pour définir le volume grafana_data
+  grafana_data:
