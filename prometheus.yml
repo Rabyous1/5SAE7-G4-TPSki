@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'app-gestion'
+    static_configs:
+      - targets: ['app-gestion:8083']
