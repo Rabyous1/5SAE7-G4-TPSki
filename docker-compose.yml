@@ -6,9 +6,11 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: password123
       MYSQL_DATABASE: gestion_station_ski
     ports:
-      - "3307:3306"  # Remplacez 3306 par 3307 ici
+      - "3307:3306"  # Remplace le port 3306 par 3307 sur l'hôte pour éviter les conflits
     volumes:
       - db_data:/var/lib/mysql
 
@@ -19,7 +21,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8083:8080"  # Utilise le port 8083 en local au lieu de 8080
+      - "8083:8080"  # Utilise le port 8083 sur l'hôte pour éviter les conflits avec Jenkins
     environment:
       SPRING_APPLICATION_JSON: '{
         "spring.datasource.url" : "jdbc:mysql://mysql:3306/gestion_station_ski?createDatabaseIfNotExist=true",
