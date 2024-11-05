@@ -19,10 +19,17 @@
 
 			<sonar.projectKey>ProjetDevops</sonar.projectKey>
 			<sonar.host.url>http://192.168.33.10:9000</sonar.host.url>
-			<sonar.login>squ_478ee6dbd73662dbcfedb0fb6b1aac51d6f718f8</sonar.login> <!-- Remplace par ton token d'authentification -->
+			<sonar.login>squ_a992cce16293a9aa292e810276211c304af725c0</sonar.login> <!-- Remplace par ton token d'authentification -->
 
 
 	</properties>
+	<distributionManagement>
+		<repository>
+			<id>Devops</id>
+			<url>http://192.168.33.10:8081/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
