@@ -11,6 +11,8 @@ services:
       - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - app-network
 
   app-gestion:
     depends_on:
@@ -39,6 +41,8 @@ services:
     restart: on-failure
     stdin_open: true
     tty: true
+    networks:
+      - app-network
 
   grafana:
     image: grafana/grafana
@@ -49,6 +53,8 @@ services:
     volumes:
       - grafana_data:/var/lib/grafana
     restart: always
+    networks:
+      - app-network
 
   prometheus:
     image: prom/prometheus
@@ -57,6 +63,12 @@ services:
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
 volumes:
   db_data:
   grafana_data:
