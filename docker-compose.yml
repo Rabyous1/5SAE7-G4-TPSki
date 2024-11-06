@@ -40,15 +40,6 @@ services:
     stdin_open: true
     tty: true
 
-  grafana:
-    image: grafana/grafana
-    ports:
-      - "3001:3000"
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-    volumes:
-      - grafana_data:/var/lib/grafana
-    restart: always
 
 
 volumes:
