@@ -1,4 +1,3 @@
-
 version: '3.8'
 
 services:
@@ -17,8 +16,9 @@ services:
     depends_on:
       - mysql
     build:
-      context: docker
+      context: .
       dockerfile: Dockerfile
+    image: app-gestion:latest
     ports:
       - "8083:8080"
     environment:
@@ -26,6 +26,8 @@ services:
         "spring.datasource.url" : "jdbc:mysql://mysql:3306/gestion_station_ski?createDatabaseIfNotExist=true",
         "spring.datasource.username" : "appuser",
         "spring.datasource.password" : "password123",
+        "spring.datasource.hikari.connection-timeout" : "30000", 
+        "spring.datasource.hikari.maximum-pool-size" : "10",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
         "spring.jpa.hibernate.ddl-auto" : "update",
         "server.servlet.context-path": "/api",
@@ -39,6 +41,7 @@ services:
     restart: on-failure
     stdin_open: true
     tty: true
+    command: ["sh", "-c", "sleep 30 && java -jar /app.jar"]
 
   grafana:
     image: grafana/grafana
