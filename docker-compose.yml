@@ -5,7 +5,7 @@ services:
     image: mysql:8.0
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password123
       MYSQL_DATABASE: gestion_station_ski
     ports:
       - "3307:3306"
@@ -28,36 +28,12 @@ services:
         "spring.datasource.password" : "password123",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
         "spring.jpa.hibernate.ddl-auto" : "update",
-        "server.servlet.context-path": "/api",
-        "server.port": "8089",
-        "management.endpoints.web.exposure.include": "*",
-        "management.endpoint.prometheus.enabled": "true",
-        "management.metrics.export.prometheus.enabled": "true",
-        "management.endpoints.web.base-path": "/actuator",
-        "management.metrics.export.prometheus.rsocket.enabled": "false"
+       
       }'
     restart: on-failure
     stdin_open: true
     tty: true
 
-  grafana:
-   image: grafana/grafana
-   ports:
-    - "3001:3000"
-   environment:
-    - GF_SECURITY_ADMIN_PASSWORD=admin
-   volumes:
-    - grafana_data:/var/lib/grafana
-   restart: always
-
-  prometheus:
-    image: prom/prometheus
-    ports:
-      - "9091:9090"
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    restart: always
 
 volumes:
   db_data:
-  grafana_data:
