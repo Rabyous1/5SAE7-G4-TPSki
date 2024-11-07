@@ -20,7 +20,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: app-gestion:latest
+    image: raboudiyoussef-g4-tpski:latest
     ports:
       - "8083:8080"
     environment:
