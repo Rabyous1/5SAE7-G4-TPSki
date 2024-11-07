@@ -8,7 +8,7 @@ services:
     ports:
       - "8083:8083"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/db?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3309/db?createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 0000
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
