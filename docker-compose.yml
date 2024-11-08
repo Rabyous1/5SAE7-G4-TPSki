@@ -31,7 +31,7 @@ services:
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
         "spring.jpa.hibernate.ddl-auto" : "update",
         "server.servlet.context-path": "/api",
-        "server.port": "8080",
+        "server.port": "8083",
         "management.endpoints.web.exposure.include": "*",
         "management.endpoint.prometheus.enabled": "true",
         "management.metrics.export.prometheus.enabled": "true",
