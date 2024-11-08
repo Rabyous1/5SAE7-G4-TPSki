@@ -25,9 +25,9 @@ services:
       - "8083:8080"
     environment:
       SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url" : "jdbc:mysql://mysql:3306/gestion_station_ski?createDatabaseIfNotExist=true",
-        "spring.datasource.username" : "appuser",
-        "spring.datasource.password" : "password123",
+        "spring.datasource.url" : "jdbc:mysql://mysql:3306/stationSki?createDatabaseIfNotExist=true",
+        "spring.datasource.username" : "user",
+        "spring.datasource.password" : "",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
         "spring.jpa.hibernate.ddl-auto" : "update",
         "server.servlet.context-path": "/api",
